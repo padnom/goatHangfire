@@ -1,0 +1,14 @@
+{
+	"profiles": {
+		"Docker Compose": {
+			"commandName": "DockerCompose",
+			"commandVersion": "1.0",
+			"serviceActions": {
+				"goathangfire.dashboard": "StartDebugging",
+				"goathangfire.externalJob": "StartDebugging",
+				"sqlserver": "StartWithoutDebugging",
+				"sqlserver.configurator": "StartWithoutDebugging"
+			}
+		}
+	}
+}

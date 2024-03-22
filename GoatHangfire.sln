@@ -1,6 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoatHangfire.Dashboard", "GoatHangfire.Dashboard\GoatHangfire.Dashboard.csproj", "{4E0540DB-207B-4F7C-9BAB-B48BE0D08321}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34607.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EB60E20C-5DDB-4179-AF9D-FBB375C38EF3}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		ressources\scripts\init.sh = ressources\scripts\init.sh
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoatHangfire.Dashboard", "src\GoatHangfire.Dashboard\GoatHangfire.Dashboard.csproj", "{1BDF5602-DA8C-45C5-A185-7C0F1E178F3A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoatHangfire.ExternalJob", "src\GoatHangfire.ExternalJob\GoatHangfire.ExternalJob.csproj", "{51A56EC3-8FD4-4F6E-8DD0-4E1042DBA602}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoatHangfire.InternalJob", "src\GoatHangfire.InternalJob\GoatHangfire.InternalJob.csproj", "{204F66C3-8768-4261-890F-B1A2D646EADD}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +24,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4E0540DB-207B-4F7C-9BAB-B48BE0D08321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E0540DB-207B-4F7C-9BAB-B48BE0D08321}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E0540DB-207B-4F7C-9BAB-B48BE0D08321}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E0540DB-207B-4F7C-9BAB-B48BE0D08321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BDF5602-DA8C-45C5-A185-7C0F1E178F3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BDF5602-DA8C-45C5-A185-7C0F1E178F3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BDF5602-DA8C-45C5-A185-7C0F1E178F3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BDF5602-DA8C-45C5-A185-7C0F1E178F3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A56EC3-8FD4-4F6E-8DD0-4E1042DBA602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A56EC3-8FD4-4F6E-8DD0-4E1042DBA602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A56EC3-8FD4-4F6E-8DD0-4E1042DBA602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A56EC3-8FD4-4F6E-8DD0-4E1042DBA602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204F66C3-8768-4261-890F-B1A2D646EADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204F66C3-8768-4261-890F-B1A2D646EADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204F66C3-8768-4261-890F-B1A2D646EADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204F66C3-8768-4261-890F-B1A2D646EADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEA18223-2B01-41B7-86E1-6B117F2AEBA4}
 	EndGlobalSection
 EndGlobal

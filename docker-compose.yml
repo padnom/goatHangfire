@@ -1,0 +1,48 @@
+﻿version: '3.6'
+
+services:
+  goathangfire.dashboard:
+    image: goathangfire.dashboard
+    build:
+      context: .
+      dockerfile: src/GoatHangfire.Dashboard/Dockerfile
+    depends_on:
+      - sqlserver
+  
+  goathangfire.externalJob:
+    image: goathangfire.externaljob
+    build:
+      context: .
+      dockerfile: src/GoatHangfire.ExternalJob/Dockerfile
+    depends_on:
+      - sqlserver
+  
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Your_password123
+    healthcheck:
+      test: [ "CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P ${Sa_Password:-Your_password123} -Q 'SELECT 1' || exit 1" ]
+      interval: 10s
+      retries: 10
+      start_period: 10s
+      timeout: 3s
+    ports:
+      - "1633:1433"
+    volumes:
+      - ./ressources/volumes:/var/opt/mssql/data
+  
+  
+  sqlserver.configurator:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    command: >
+      bash -c "/scripts/init.sh"
+    volumes:
+      - ./ressources/scripts:/scripts
+      

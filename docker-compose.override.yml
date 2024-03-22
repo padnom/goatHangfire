@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  goathangfire.dashboard:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=certif
+      - Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - Kestrel__Certificates__Default__Password=certif
+    ports:
+      - 32793:443
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ~/.aspnet/https:/https:ro
+
+  goathangfire.externalJob:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+    

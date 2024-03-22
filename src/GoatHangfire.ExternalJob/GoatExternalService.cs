@@ -1,9 +1,9 @@
 ﻿namespace GoatHangfire.ExternalJob;
-public class GoatExeternalService : IGoatExternalService
+public class GoatExternalService : IGoatExternalService
 {
   public async Task ExecuteAsync(CancellationToken cancellationToken)
   {
-    await Task.Delay(100,cancellationToken);
-    Console.WriteLine("GoatService QueueJobExecuteAsync Executed");
+    await Task.Delay(5000,cancellationToken);
+    Console.WriteLine("GoatService QueueGoatExternalService Executed");
   }
 }

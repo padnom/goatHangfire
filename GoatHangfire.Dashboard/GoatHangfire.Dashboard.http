@@ -1,6 +1,0 @@
-@GoatHangfire.Dashboard_HostAddress = http://localhost:5037
-
-GET {{GoatHangfire.Dashboard_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

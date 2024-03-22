@@ -1,21 +1,38 @@
 ﻿using Hangfire;
-using Microsoft.Extensions.Hosting;
 
 namespace GoatHangfire.InternalJob;
-public class InternalJob1 : BackgroundService
+
+public class InternalGoatJob
 {
-  private readonly IRecurringJobManager _recurringJobs;
-  private readonly IGoatService _goatService;
+    private readonly IBackgroundJobClient _backgroundJobs;
+    private readonly IRecurringJobManager _recurringJobs;
+    private readonly IGoatService _goatService;
 
-  public InternalJob1(IRecurringJobManager recurringJobs,IGoatService goatService)
-  {
-    _recurringJobs = recurringJobs;
-    _goatService = goatService;
-  }
-  protected override Task ExecuteAsync(CancellationToken stoppingToken)
-  {
-    _recurringJobs.AddOrUpdate("internal-job-1", () => _goatService.ExecuteAsync(), Cron.Minutely);
-    return Task.CompletedTask;
+    public InternalGoatJob(IBackgroundJobClient backgroundJobs,
+                           IRecurringJobManager recurringJobs,
+                           IGoatService goatService)
+    {
+        _backgroundJobs = backgroundJobs;
+        _recurringJobs = recurringJobs;
+        _goatService = goatService;
+    }
 
-  }
+    public Task ExecuteRecurringJobAsync(string cronExpession, CancellationToken stoppingToken)
+    {
+        _recurringJobs.AddOrUpdate<IGoatService>("internal-goat-recurring-job",
+                                                x => x.RecurringExecuteAsync(stoppingToken),
+                                                cronExpession);
+
+        return Task.CompletedTask;
+    }
+
+    public void ExecuteQueueJobAsync(CancellationToken stoppingToken)
+    {
+        _backgroundJobs.Enqueue<IGoatService>(x => x.QueueExecuteAsync(stoppingToken));
+    }
+
+    public void ExecuteQueueJob()
+    {
+        _backgroundJobs.Enqueue(() => _goatService.QueueExecute());
+    }
 }
