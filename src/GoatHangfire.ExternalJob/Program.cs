@@ -5,7 +5,6 @@ using Hangfire;
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<ExternalGoatJob>();
 builder.Services.AddSingleton<IGoatExternalService, GoatExternalService>();
-Thread.Sleep(millisecondsTimeout: 10000);
 builder.Services.AddHangfire(configuration => configuration
                                               .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
                                               .UseFilter(new AutomaticRetryAttribute { Attempts = 0, })
@@ -13,7 +12,7 @@ builder.Services.AddHangfire(configuration => configuration
                                               .UseRecommendedSerializerSettings()
                                               .UseColouredConsoleLogProvider()
                                               .UseSqlServerStorage(
-                                                  builder.Configuration.GetConnectionString("hangfire")));
+                                                  builder.Configuration.GetConnectionString("Hangfire")));
 
 builder.Services.AddHangfireServer();
 IHost host = builder.Build();

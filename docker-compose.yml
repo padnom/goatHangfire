@@ -32,7 +32,7 @@ services:
     ports:
       - "1633:1433"
     volumes:
-      - ./ressources/volumes:/var/opt/mssql/data
+      - ./ressources/docker/volumes:/var/opt/mssql/data
   
   
   sqlserver.configurator:
@@ -44,5 +44,5 @@ services:
     command: >
       bash -c "/scripts/init.sh"
     volumes:
-      - ./ressources/scripts:/scripts
+      - ./ressources/docker/scripts:/scripts
       

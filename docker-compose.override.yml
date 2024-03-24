@@ -19,6 +19,6 @@ services:
 
   goathangfire.externalJob:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Docker
+      - DOTNET_ENVIRONMENT=Docker
 
     
