@@ -65,8 +65,15 @@ ExternalJob[ExternalJob] <--> OtherServer
 
 You can't find the source code on the repo.
 
+## Prerequise
+- Docker
+
+## Run the project
+   - You can run the project directly with docker-compose or DotNet Aspire. I will try to make a future article about DotNet Aspire.
+
+
 You need a database to store the jobs. You can use SQL Server or SQL Azure.
-IN this example, we will use SQL Server. I also create a docker-compose file to create the database.
+In this example, we will use SQL Server.
 
 Create a Solution Core application that uses Hangfire to perform background processing.
 The project will be devided in 3 parts :
@@ -319,10 +326,10 @@ You can access the dashboard :
 - [Hangfire](https://localhost:32793/dashboard)
 
 Create/Update a Recurring Job with swagger :
-
-<img  src="C:\Dev\Repos\perso\GoatHangfire\ressources\doc\create-recurring-job.png" height="600" width="800"/>
-<img  src="C:\Dev\Repos\perso\GoatHangfire\ressources\doc\reccuring-jobs.png" height="600" width="700"/>
-<img  src="C:\Dev\Repos\perso\GoatHangfire\ressources\doc\graph.png" />
+ 
+<img  src="..\ressources\doc\create-recurring-job.png" height="600" width="800"/>
+<img  src="..\ressources\doc\reccuring-jobs.png" height="600" width="700"/>
+<img  src="..\ressources\doc\graph.png" />
 
 As you can see for external job with have less information than internal job.
 Job ==> Could not resolve assembly .....
@@ -334,6 +341,8 @@ GoatHangfire.ExternalJob'."
 # Conclusion
 
 Hangfire is a great library for background processing in .NET Core applications. It provides a simple and easy-to-use.
+It's a great alternative to Quartz.NET.
+Personnaly, the Hangfire Dashboard is a great feature that allows you to monitor, manage and debug your background jobs that's why I prefer Hangfire over Quartz.NET.
 
 
 
