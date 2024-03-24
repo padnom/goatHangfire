@@ -326,10 +326,15 @@ You can access the dashboard :
 - [Hangfire](https://localhost:32793/dashboard)
 
 Create/Update a Recurring Job with swagger :
- 
+
+ ![](../ressources/doc/create-recurring-job.png)
+ ![](../ressources/doc/reccuring-jobs.png)
+ ![](../ressources/doc/graph.png)
+
+ <!--
 <img  src="..\ressources\doc\create-recurring-job.png" height="600" width="800"/>
 <img  src="..\ressources\doc\reccuring-jobs.png" height="600" width="700"/>
-<img  src="..\ressources\doc\graph.png" />
+<img  src="..\ressources\doc\graph.png" /> -->
 
 As you can see for external job with have less information than internal job.
 Job ==> Could not resolve assembly .....
