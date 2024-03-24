@@ -7,6 +7,7 @@ IResourceBuilder<SqlServerDatabaseResource> hangfireDb = builder.AddSqlServer("s
     // Run the custom entrypoint script on startup.
     .WithEntrypoint("/usr/config/entrypoint.sh")
     // Add the database to the application model so that it can be referenced by other resources.
+    .WithBindMount("../../../ressources/volumesaspire", "/var/opt/mssql/data")
     .AddDatabase("hangfire");
 
 builder.AddProject<Projects.GoatHangfire_Dashboard>("goathangfire-dashboard")
