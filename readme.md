@@ -51,7 +51,7 @@ In this article we will focus on Fire-and-forget and Recurring jobs.
 
 ## Diagram
 
-:::mermaid
+```mermaid
 flowchart LR
 DatabaseHangfire[(Database)] <--> Dashboard{Dashboard}
 InternalServer[InternalServer] --> DatabaseHangfire
@@ -59,7 +59,7 @@ OtherServer[OtherServer] <--> DatabaseHangfire
 InternalJob[InternalJob] <--> InternalServer
 InternalJob2[InternalJob2] <--> InternalServer
 ExternalJob[ExternalJob] <--> OtherServer
-:::
+```
 
 # Pratical Example
 
