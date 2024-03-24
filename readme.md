@@ -332,9 +332,7 @@ Create/Update a Recurring Job with swagger :
  ![](../ressources/doc/graph.png) -->
 
 
-<img  src="https://github.com/padnom/goatHangfire/blob/main/ressources/docs/create-recurring-job.png" height="300" width="300"/>
-<img  src="https://github.com/padnom/goatHangfire/blob/main/ressources/docs/reccuring-jobs.png" height="300" width="300"/>
-<img  src="https://github.com/padnom/goatHangfire/blob/main/ressources/docs/graph.png" height="300" width="300" />
+<img  src="https://github.com/padnom/goatHangfire/blob/main/ressources/docs/create-recurring-job.png" height="300" width="400"/><img  src="https://github.com/padnom/goatHangfire/blob/main/ressources/docs/reccuring-jobs.png" height="300" width="400"/><img  src="https://github.com/padnom/goatHangfire/blob/main/ressources/docs/graph.png" height="300" width="400" />
 
 As you can see for external job with have less information than internal job.
 Job ==> Could not resolve assembly .....
