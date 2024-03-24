@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		ressources\scripts\init.sh = ressources\scripts\init.sh
+		ressources\scripts\init.sql = ressources\scripts\init.sql
 		readme.md = readme.md
 	EndProjectSection
 EndProject
@@ -17,6 +18,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoatHangfire.InternalJob", "src\GoatHangfire.InternalJob\GoatHangfire.InternalJob.csproj", "{204F66C3-8768-4261-890F-B1A2D646EADD}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoatHangfire.AppHost", "src\Aspire\GoatHangfire.AppHost\GoatHangfire.AppHost.csproj", "{9D1D1B89-4ABB-4008-B041-DE05DC3E9AE1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoatHangfire.ServiceDefaults", "src\Aspire\GoatHangfire.ServiceDefaults\GoatHangfire.ServiceDefaults.csproj", "{5964F645-9E5D-46CC-972E-B7316BBAFFA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +45,14 @@ Global
 		{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2034CBF6-721A-4B0A-B2C1-AD7E65B28DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D1D1B89-4ABB-4008-B041-DE05DC3E9AE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D1D1B89-4ABB-4008-B041-DE05DC3E9AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D1D1B89-4ABB-4008-B041-DE05DC3E9AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D1D1B89-4ABB-4008-B041-DE05DC3E9AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5964F645-9E5D-46CC-972E-B7316BBAFFA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5964F645-9E5D-46CC-972E-B7316BBAFFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5964F645-9E5D-46CC-972E-B7316BBAFFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5964F645-9E5D-46CC-972E-B7316BBAFFA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

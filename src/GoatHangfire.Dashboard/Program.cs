@@ -7,12 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGoatService, GoatService>();
 builder.Services.AddScoped<InternalGoatJob>();
+builder.AddSqlServerClient("hangfire");
 
 builder.Services.AddHangfire(configuration => configuration
                                               .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
@@ -21,10 +24,12 @@ builder.Services.AddHangfire(configuration => configuration
                                               .UseRecommendedSerializerSettings()
                                               .UseColouredConsoleLogProvider()
                                               .UseSqlServerStorage(
-                                                builder.Configuration.GetConnectionString("HangfireDbConnection")));
+                                                builder.Configuration.GetConnectionString("Hangfire")));
 builder.Services.AddHangfireServer();
 
 WebApplication app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 // Configure the HTTP request pipeline.
 
@@ -51,7 +56,9 @@ app.MapPost("/hangfire/createupdate-recurring-job",
                 await internalGoatJob.ExecuteRecurringJobAsync(cronExpression, CancellationToken.None);
             });
 
-if (app.Environment.IsDevelopment() || app.Environment.EnvironmentName.Contains("Docker"))
+if (app.Environment.IsDevelopment()
+    || app.Environment.EnvironmentName.Contains("Docker")
+    || app.Environment.EnvironmentName.Contains("Aspire"))
 {
     app.UseSwagger();
     app.UseSwaggerUI();

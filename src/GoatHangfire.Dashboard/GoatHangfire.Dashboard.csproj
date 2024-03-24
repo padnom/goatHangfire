@@ -11,6 +11,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Aspire.Microsoft.Data.SqlClient" Version="8.0.0-preview.4.24156.9" />
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-preview.4.24156.9" />
         <PackageReference Include="Hangfire" Version="1.8.11" />
         <PackageReference Include="Hangfire.SqlServer" Version="1.8.11" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.2" />
@@ -20,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Aspire\GoatHangfire.ServiceDefaults\GoatHangfire.ServiceDefaults.csproj" />
       <ProjectReference Include="..\GoatHangfire.InternalJob\GoatHangfire.InternalJob.csproj" />
     </ItemGroup>
 
