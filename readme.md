@@ -1,6 +1,10 @@
-In the realm of software development, task scheduling is a crucial aspect that can significantly impact the performance and efficiency of applications. In our previous article, we explored the ins and outs of Quartz.NET, a popular task scheduling library. Today, we're going to turn our attention to another powerful player in the .NET ecosystem - Hangfire.
+In my actual society we have several jobs on VM handle by windows task scheduler.
+I wanted to find a solution to handle these jobs in a more efficient way with a better monitoring system.
+In our previous article, we explored  Quartz.NET. I will try to talk about an alternative to Quartz.NET.
 
-Hangfire is an open-source framework designed to simplify the process of creating, processing, and managing background jobs. It offers a range of features that make it a robust and versatile tool for handling various types of tasks. This article will delve into the key components of Hangfire, discuss its benefits, and provide a practical example of how to use it in a .NET Core application.
+Hangfire is an open-source framework designed to simplify the process of creating, processing, and managing background jobs.
+It offers a range of features that make it a robust and versatile tool for handling various types of tasks.
+In this article will delve into the key components of Hangfire, discuss its benefits, and provide a practical example of how to use it in a .NET Core application.
 
 ## Hangfire
 
@@ -297,10 +301,10 @@ If you try to requeue an external job, you will get an error "System.IO.FileNotF
 
 # Conclusion
 
-In wrapping up our exploration of Hangfire, it's clear that this library offers a comprehensive solution for background processing in .NET Core applications. Its simplicity and ease of use make it accessible for developers at all levels, while its robust features ensure it can handle even the most complex task scheduling scenarios.
+In wrapping up our exploration of Hangfire, it's clear that this library offers a comprehensive solution for background processing in .NET Core applications.
 
-**One of the standout features of Hangfire is its Dashboard**. This built-in, web-based user interface provides a clear and detailed overview of all your background jobs, allowing you to monitor, manage, and debug them with ease. The Dashboard's intuitive design and powerful functionality give Hangfire a significant advantage.
+**The Dashboard** is a response to my main objective.
+This built-in, web-based user interface provides a clear and detailed overview of all your background jobs, allowing you to monitor, manage.
 
-**Resource Consumption**: Depending on the number of jobs and the frequency at which they are processed, Hangfire can consume significant system resources, especially if it's running in the same process as your web application.
-
-Despite these potential cons, Hangfire's ability to handle a wide range of job types, coupled with its user-friendly Dashboard, makes it a valuable addition to any .NET developer's toolkit. Whether you're working with fire-and-forget jobs, delayed jobs, recurring jobs, or any other type of background task, Hangfire provides the tools you need to manage them.
+**Resource Consumption**:
+Depending on the number of jobs and the frequency at which they are processed, Hangfire can consume significant system resources, especially if it's running in the same process as your web application.
