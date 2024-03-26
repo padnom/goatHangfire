@@ -108,31 +108,26 @@ In program.cs
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<ExternalGoatJob>();
 
+// AddHangfire: This method adds Hangfire services to the services container. It takes a configuration action where you can configure various aspects of Hangfire.
 builder.Services.AddHangfire(configuration => configuration
-                                              .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
-                                              .UseFilter(new AutomaticRetryAttribute { Attempts = 0, })
-                                              .UseSimpleAssemblyNameTypeSerializer()
-                                              .UseRecommendedSerializerSettings()
-                                              .UseColouredConsoleLogProvider()
-                                              .UseSqlServerStorage(
-                                                builder.Configuration.GetConnectionString("HangfireDbConnection")));
-builder.Services.AddHangfireServer();
+    // SetDataCompatibilityLevel(CompatibilityLevel.Version_180): This sets the compatibility level for serialized data.
+    // Version 180 is the latest and it's recommended to use the latest version unless you need to support older Hangfire servers.
+    .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+    // This adds a filter that automatically retries failed jobs.
+    // The Attempts property is set to 0, which means jobs won't be retried if they fail.
+    .UseFilter(new AutomaticRetryAttribute { Attempts = 0, })
+    // This changes the type serializer to use simple assembly names.
+    // This can help avoid issues when moving jobs between different environments.
+    .UseSimpleAssemblyNameTypeSerializer()
+    // This applies recommended JSON serializer settings.
+    // It's generally a good idea to use this unless you have specific serialization needs that it doesn't meet.
+    .UseRecommendedSerializerSettings()
+    // This adds a log provider that outputs colored logs to the console.
+    .UseColouredConsoleLogProvider() 
+    // This configures Hangfire to use SQL Server for storage.
+    // The connection string is retrieved from the application's configuration with the key "HangfireDb
+    .UseSqlServerStorage(builder.Configuration.GetConnectionString("HangfireDbConnection")));
 ```
-
-**AddHangfire**: This method adds Hangfire services to the services container. It takes a configuration action where you can configure various aspects of Hangfire.
-
-**SetDataCompatibilityLevel**(CompatibilityLevel.Version\_180): This sets the compatibility level for serialized data. Version 180 is the latest and it's recommended to use the latest version unless you need to support older Hangfire servers.
-
-**UseFilter**(new AutomaticRetryAttribute { Attempts = 0 }): This adds a filter that automatically retries failed jobs. The Attempts property is set to 0, which means jobs won't be retried if they fail.
-
-**UseSimpleAssemblyNameTypeSerializer**(): This changes the type serializer to use simple assembly names. This can help avoid issues when moving jobs between different environments.
-
-**UseRecommendedSerializerSettings**(): This applies recommended JSON serializer settings. It's generally a good idea to use this unless you have specific serialization needs that it doesn't meet.
-
-**UseColouredConsoleLogProvider**(): This adds a log provider that outputs colored logs to the console. This can make it easier to read and understand the logs.
-
-**UseSqlServerStorage**(builder.Configuration.GetConnectionString("HangfireDbConnection")): This configures Hangfire to use SQL Server for storage. The connection string is retrieved from the application's configuration with the key "HangfireDbConnection".
-
 ### BackgroundService
 
 We create a new class called ExternalGoatJob that inherits from BackgroundService. This class will be responsible for adding a recurring job to the Hangfire server every minute.
@@ -274,27 +269,13 @@ Add Endpoints in order to directly run/update jobs.
 HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<ExternalGoatJob>();
 
-// AddHangfire: This method adds Hangfire services to the services container. It takes a configuration action where you can configure various aspects of Hangfire.
 builder.Services.AddHangfire(configuration => configuration
-    // SetDataCompatibilityLevel(CompatibilityLevel.Version_180): This sets the compatibility level for serialized data.
-    // Version 180 is the latest and it's recommended to use the latest version unless you need to support older Hangfire servers.
     .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
-    // This adds a filter that automatically retries failed jobs.
-    // The Attempts property is set to 0, which means jobs won't be retried if they fail.
     .UseFilter(new AutomaticRetryAttribute { Attempts = 0, })
-    // This changes the type serializer to use simple assembly names.
-    // This can help avoid issues when moving jobs between different environments.
     .UseSimpleAssemblyNameTypeSerializer()
-    // This applies recommended JSON serializer settings.
-    // It's generally a good idea to use this unless you have specific serialization needs that it doesn't meet.
     .UseRecommendedSerializerSettings()
-    // This adds a log provider that outputs colored logs to the console.
     .UseColouredConsoleLogProvider() 
-    // This configures Hangfire to use SQL Server for storage.
-    // The connection string is retrieved from the application's configuration with the key "HangfireDb
     .UseSqlServerStorage(builder.Configuration.GetConnectionString("HangfireDbConnection")));
-
-
 ```
 
 ## Accessing the Dashboard
